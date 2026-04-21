@@ -890,6 +890,698 @@ h1, h2, h3, h4, .nav__label, .hero__headline, .tile__name,
 }
 
 /* ═══════════════════════════════════════════════════════════
+   HOW WE WORK — 4-step process
+   ═══════════════════════════════════════════════════════════ */
+.process {
+  background: var(--bg-tint);
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+.process__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--side-pad);
+}
+.process__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--line);
+}
+.process__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.process__eyebrow-num {
+  font-family: var(--font-mono);
+  color: var(--accent-indi);
+  letter-spacing: 0.1em;
+}
+.process__eyebrow-rule {
+  width: 36px;
+  height: 1px;
+  background: var(--accent-beige);
+}
+.process__title {
+  font-family: var(--font-serif-latin);
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--text-primary);
+  justify-self: end;
+  text-align: right;
+  max-width: 600px;
+}
+.process__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  counter-reset: step;
+}
+.step {
+  padding: 48px 32px;
+  border-right: 1px solid var(--line);
+  position: relative;
+  counter-increment: step;
+}
+.step:last-child { border-right: 0; }
+.step__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  color: var(--accent-indi);
+  margin-bottom: 24px;
+}
+.step__name {
+  font-family: var(--font-serif-latin);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.step__desc {
+  font-family: var(--font-sans-latin);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+}
+.step__connector {
+  position: absolute;
+  top: 60px;
+  right: -12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--accent-beige);
+  z-index: 1;
+  background: var(--bg-tint);
+  padding: 4px;
+}
+
+@media (max-width: 1080px) {
+  .process__grid { grid-template-columns: repeat(2, 1fr); }
+  .step:nth-child(2n) { border-right: 0; }
+  .step:nth-child(1), .step:nth-child(2) { border-bottom: 1px solid var(--line); }
+  .step:nth-child(2n) .step__connector { display: none; }
+}
+@media (max-width: 640px) {
+  .process { padding: 80px 0; }
+  .process__head { grid-template-columns: 1fr; }
+  .process__title { justify-self: start; text-align: left; }
+  .process__grid { grid-template-columns: 1fr; }
+  .step { border-right: 0; border-bottom: 1px solid var(--line); padding: 32px 0; }
+  .step:last-child { border-bottom: 0; }
+  .step__connector { display: none; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   PROGRAMS — Our Programs (SHARE-style large cards)
+   ═══════════════════════════════════════════════════════════ */
+.programs {
+  background: var(--bg-primary);
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+.programs__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--side-pad);
+}
+.programs__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--line);
+}
+.programs__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.programs__eyebrow-num {
+  font-family: var(--font-mono);
+  color: var(--accent-indi);
+  letter-spacing: 0.1em;
+}
+.programs__eyebrow-rule {
+  width: 36px;
+  height: 1px;
+  background: var(--accent-beige);
+}
+.programs__title {
+  font-family: var(--font-serif-latin);
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--text-primary);
+  justify-self: end;
+  text-align: right;
+  max-width: 600px;
+}
+.programs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+.prog-card {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--duration-base) var(--ease-soft);
+}
+.prog-card:nth-child(3n) { border-right: 0; }
+.prog-card:hover { background: var(--bg-secondary); }
+.prog-card__img {
+  aspect-ratio: 16/10;
+  background:
+    repeating-linear-gradient(135deg, #EFE8DA 0 2px, transparent 2px 14px),
+    var(--bg-tint);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 16px;
+  text-align: center;
+}
+.prog-card__body {
+  padding: 32px 28px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  flex: 1;
+}
+.prog-card__tag {
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--prog-accent, var(--text-secondary));
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.prog-card__tag::before {
+  content: "";
+  display: inline-block;
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--prog-accent, var(--accent-beige));
+}
+.prog-card:nth-child(1) { --prog-accent: var(--accent-diagnosis); }
+.prog-card:nth-child(2) { --prog-accent: var(--accent-certification); }
+.prog-card:nth-child(3) { --prog-accent: var(--accent-consulting); }
+.prog-card__name {
+  font-family: var(--font-serif-latin);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.005em;
+  color: var(--text-primary);
+}
+.prog-card__desc {
+  font-family: var(--font-sans-latin);
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text-secondary);
+  flex: 1;
+}
+.prog-card__meta {
+  display: flex;
+  gap: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+}
+.prog-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-sans-latin);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-primary);
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--line-strong);
+  align-self: flex-start;
+  margin-top: 8px;
+  transition: color var(--duration-fast) var(--ease-soft),
+              border-color var(--duration-fast) var(--ease-soft);
+}
+.prog-card__cta:hover {
+  color: var(--accent-indi-ink);
+  border-bottom-color: var(--accent-indi);
+}
+.prog-card__cta-arrow {
+  display: inline-block;
+  transition: transform var(--duration-fast) var(--ease-soft);
+}
+.prog-card__cta:hover .prog-card__cta-arrow { transform: translateX(4px); }
+
+@media (max-width: 1080px) {
+  .programs__grid { grid-template-columns: repeat(2, 1fr); }
+  .prog-card:nth-child(3n) { border-right: 1px solid var(--line); }
+  .prog-card:nth-child(2n) { border-right: 0; }
+}
+@media (max-width: 640px) {
+  .programs { padding: 80px 0; }
+  .programs__head { grid-template-columns: 1fr; }
+  .programs__title { justify-self: start; text-align: left; }
+  .programs__grid { grid-template-columns: 1fr; }
+  .prog-card { border-right: 0; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   COURSES — Our Courses (compact grid)
+   ═══════════════════════════════════════════════════════════ */
+.courses {
+  background: var(--bg-tint);
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+.courses__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--side-pad);
+}
+.courses__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--line);
+}
+.courses__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.courses__eyebrow-num {
+  font-family: var(--font-mono);
+  color: var(--accent-indi);
+  letter-spacing: 0.1em;
+}
+.courses__eyebrow-rule {
+  width: 36px;
+  height: 1px;
+  background: var(--accent-beige);
+}
+.courses__title {
+  font-family: var(--font-serif-latin);
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--text-primary);
+  justify-self: end;
+  text-align: right;
+  max-width: 600px;
+}
+.courses__tabs {
+  display: flex;
+  gap: 0;
+  padding-top: 32px;
+  border-bottom: 1px solid var(--line);
+}
+.courses__tab {
+  font-family: var(--font-sans-latin);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 16px 24px;
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  transition: color var(--duration-fast) var(--ease-soft),
+              border-color var(--duration-fast) var(--ease-soft);
+}
+.courses__tab:hover { color: var(--text-primary); }
+.courses__tab.is-active {
+  color: var(--text-primary);
+  border-bottom-color: var(--accent-indi);
+}
+.courses__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+.course {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  transition: background var(--duration-base) var(--ease-soft);
+}
+.course:nth-child(odd) {
+  padding-right: 32px;
+  border-right: 1px solid var(--line);
+}
+.course:nth-child(even) { padding-left: 32px; }
+.course__num {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  color: var(--accent-beige);
+  flex-shrink: 0;
+  padding-top: 4px;
+}
+.course__body { flex: 1; }
+.course__cat {
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 8px;
+}
+.course__name {
+  font-family: var(--font-serif-latin);
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+.course__desc {
+  font-family: var(--font-sans-latin);
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+.course__tags {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.course__tag-item {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+}
+
+@media (max-width: 768px) {
+  .courses__grid { grid-template-columns: 1fr; }
+  .course:nth-child(odd) { padding-right: 0; border-right: 0; }
+  .course:nth-child(even) { padding-left: 0; }
+  .courses__tabs { flex-wrap: wrap; }
+}
+@media (max-width: 640px) {
+  .courses { padding: 80px 0; }
+  .courses__head { grid-template-columns: 1fr; }
+  .courses__title { justify-self: start; text-align: left; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   EXPERTS — Workshop Leaders / Experts & Partners
+   ═══════════════════════════════════════════════════════════ */
+.experts {
+  background: var(--bg-primary);
+  padding: 120px 0;
+  border-top: 1px solid var(--line);
+}
+.experts__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--side-pad);
+}
+.experts__head {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid var(--line);
+}
+.experts__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+.experts__eyebrow-num {
+  font-family: var(--font-mono);
+  color: var(--accent-indi);
+  letter-spacing: 0.1em;
+}
+.experts__eyebrow-rule {
+  width: 36px;
+  height: 1px;
+  background: var(--accent-beige);
+}
+.experts__title {
+  font-family: var(--font-serif-latin);
+  font-weight: 400;
+  font-size: clamp(32px, 3.6vw, 48px);
+  line-height: 1.15;
+  letter-spacing: -0.012em;
+  color: var(--text-primary);
+  justify-self: end;
+  text-align: right;
+  max-width: 600px;
+}
+.experts__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+.expert {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  transition: background var(--duration-base) var(--ease-soft);
+}
+.expert:nth-child(4n) { border-right: 0; }
+.expert:hover { background: var(--bg-secondary); }
+.expert__photo {
+  aspect-ratio: 3/4;
+  background:
+    repeating-linear-gradient(135deg, #EFE8DA 0 2px, transparent 2px 14px),
+    var(--bg-tint);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  text-align: center;
+  padding: 16px;
+}
+.expert__info {
+  padding: 24px 20px 28px;
+}
+.expert__name {
+  font-family: var(--font-serif-latin);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.expert__role {
+  font-family: var(--font-sans-latin);
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+.expert__cert {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+.experts__partners {
+  padding-top: 80px;
+  margin-top: 80px;
+  border-top: 1px solid var(--line);
+}
+.experts__partners-label {
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+  margin-bottom: 40px;
+}
+.experts__logos {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.experts__logo-ph {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--text-tertiary);
+  padding: 20px 32px;
+  border: 1px solid var(--line);
+}
+
+@media (max-width: 1080px) {
+  .experts__grid { grid-template-columns: repeat(3, 1fr); }
+  .expert:nth-child(4n) { border-right: 1px solid var(--line); }
+  .expert:nth-child(3n) { border-right: 0; }
+}
+@media (max-width: 768px) {
+  .experts__grid { grid-template-columns: repeat(2, 1fr); }
+  .expert:nth-child(3n) { border-right: 1px solid var(--line); }
+  .expert:nth-child(2n) { border-right: 0; }
+  .experts__head { grid-template-columns: 1fr; }
+  .experts__title { justify-self: start; text-align: left; }
+}
+@media (max-width: 640px) {
+  .experts { padding: 80px 0; }
+  .experts__logos { gap: 24px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════ */
+.footer {
+  background: var(--text-primary);
+  color: rgba(255,255,255,0.7);
+  padding: 80px 0 48px;
+  border-top: 1px solid var(--line);
+}
+.footer__inner {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: 0 var(--side-pad);
+}
+.footer__top {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+.footer__brand {
+  font-family: var(--font-serif-latin);
+  font-weight: 400;
+  font-size: 28px;
+  color: #fff;
+  margin-bottom: 16px;
+}
+.footer__slogan {
+  font-family: var(--font-serif-latin);
+  font-weight: 300;
+  font-size: 16px;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.5;
+}
+.footer__col-title {
+  font-family: var(--font-sans-latin);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 20px;
+}
+.footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer__link {
+  font-family: var(--font-sans-latin);
+  font-size: 14px;
+  color: rgba(255,255,255,0.7);
+  transition: color var(--duration-fast) var(--ease-soft);
+}
+.footer__link:hover { color: #fff; }
+.footer__bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding-top: 32px;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.footer__legal {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.35);
+  max-width: 60ch;
+}
+.footer__lang {
+  display: flex;
+  gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+.footer__lang a {
+  color: rgba(255,255,255,0.4);
+  transition: color var(--duration-fast) var(--ease-soft);
+}
+.footer__lang a:hover, .footer__lang a.is-active { color: #fff; }
+.footer__lang-sep { color: rgba(255,255,255,0.2); }
+
+@media (max-width: 768px) {
+  .footer__top { grid-template-columns: 1fr; gap: 40px; }
+  .footer__bottom { flex-direction: column; gap: 20px; }
+}
+
+/* ═══════════════════════════════════════════════════════════
    FOCUS + SELECTION
    ═══════════════════════════════════════════════════════════ */
 :where(a, button, [tabindex]):focus-visible {
@@ -1214,12 +1906,429 @@ h1, h2, h3, h4, .nav__label, .hero__headline, .tile__name,
   </div>
 </section>
 
-<!-- Temporary spacer for next section -->
-<section style="height: 60vh; display: flex; align-items: center; justify-content: center; border-top: 1px solid var(--line); background: var(--bg-tint);">
-  <p style="font-family: var(--font-serif-latin); font-size: 28px; color: var(--text-tertiary);">
-    How We Work · coming next
-  </p>
+<!-- ═══════════════════════════════════════════════════════════
+     HOW WE WORK — Killer Section
+     ═══════════════════════════════════════════════════════════ -->
+<section class="process" id="process">
+  <div class="process__inner">
+    <header class="process__head">
+      <div class="process__eyebrow reveal reveal--eyebrow">
+        <span class="process__eyebrow-num">03</span>
+        <span class="process__eyebrow-rule" aria-hidden="true"></span>
+        <span>How We Work</span>
+      </div>
+      <h2 class="process__title reveal reveal--heading">
+        From Observation to Standard
+      </h2>
+    </header>
+
+    <div class="process__grid">
+      <div class="step reveal reveal--body" style="--reveal-delay: 0ms">
+        <div class="step__num">Step 01</div>
+        <h3 class="step__name">Measure</h3>
+        <p class="step__desc">
+          Calibrated colorimeters capture LAB values from skin, hair, and iris.
+          No subjective judgment enters the process.
+        </p>
+        <span class="step__connector" aria-hidden="true">&rarr;</span>
+      </div>
+
+      <div class="step reveal reveal--body" style="--reveal-delay: 120ms">
+        <div class="step__num">Step 02</div>
+        <h3 class="step__name">Analyze</h3>
+        <p class="step__desc">
+          Data is mapped against our 13,000+ record database using proprietary
+          algorithms to identify patterns and classifications.
+        </p>
+        <span class="step__connector" aria-hidden="true">&rarr;</span>
+      </div>
+
+      <div class="step reveal reveal--body" style="--reveal-delay: 240ms">
+        <div class="step__num">Step 03</div>
+        <h3 class="step__name">Consult</h3>
+        <p class="step__desc">
+          KCFB-certified practitioners integrate color, face shape, and body
+          analysis into a unified image strategy.
+        </p>
+        <span class="step__connector" aria-hidden="true">&rarr;</span>
+      </div>
+
+      <div class="step reveal reveal--body" style="--reveal-delay: 360ms">
+        <div class="step__num">Step 04</div>
+        <h3 class="step__name">Set Standard</h3>
+        <p class="step__desc">
+          A personalized reference document is delivered: measurable,
+          reproducible, and independent of any single consultant.
+        </p>
+      </div>
+    </div>
+  </div>
 </section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     PROGRAMS — Our Programs (SHARE-style large cards)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="programs" id="programs">
+  <div class="programs__inner">
+    <header class="programs__head">
+      <div class="programs__eyebrow reveal reveal--eyebrow">
+        <span class="programs__eyebrow-num">04</span>
+        <span class="programs__eyebrow-rule" aria-hidden="true"></span>
+        <span>Our Programs</span>
+      </div>
+      <h2 class="programs__title reveal reveal--heading">
+        Structured Pathways for Every Level
+      </h2>
+    </header>
+
+    <div class="programs__grid">
+      <article class="prog-card reveal reveal--body" style="--reveal-delay: 0ms">
+        <div class="prog-card__img">Fig. 01 &mdash; Diagnostic Session · 16:10</div>
+        <div class="prog-card__body">
+          <span class="prog-card__tag">Diagnosis</span>
+          <h3 class="prog-card__name">APLCOLOR Intensive</h3>
+          <p class="prog-card__desc">
+            A comprehensive personal diagnostic session covering color analysis,
+            face shape mapping, and body proportion assessment. Conducted in our
+            studios with calibrated instruments.
+          </p>
+          <div class="prog-card__meta">
+            <span>2&ndash;3 Hours</span>
+            <span>In-Studio</span>
+            <span>Individual</span>
+          </div>
+          <a class="prog-card__cta" href="#">
+            <span>Learn More</span>
+            <span class="prog-card__cta-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="prog-card reveal reveal--body" style="--reveal-delay: 120ms">
+        <div class="prog-card__img">Fig. 02 &mdash; Certification Class · 16:10</div>
+        <div class="prog-card__body">
+          <span class="prog-card__tag">Certification</span>
+          <h3 class="prog-card__name">KCFB Professional Program</h3>
+          <p class="prog-card__desc">
+            A 12-week practitioner certification covering colorimetry theory,
+            diagnostic methodology, and client consulting. Graduates receive
+            KCFB credentials with format KCFB-YYYY-NNNN.
+          </p>
+          <div class="prog-card__meta">
+            <span>12 Weeks</span>
+            <span>Hybrid</span>
+            <span>Cohort</span>
+          </div>
+          <a class="prog-card__cta" href="#">
+            <span>View Curriculum</span>
+            <span class="prog-card__cta-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </article>
+
+      <article class="prog-card reveal reveal--body" style="--reveal-delay: 240ms">
+        <div class="prog-card__img">Fig. 03 &mdash; Enterprise Workshop · 16:10</div>
+        <div class="prog-card__body">
+          <span class="prog-card__tag">Consulting</span>
+          <h3 class="prog-card__name">Enterprise Engagement</h3>
+          <p class="prog-card__desc">
+            Tailored consulting for corporations and institutions. Includes
+            executive image audits, team workshops, and organizational
+            image standards development.
+          </p>
+          <div class="prog-card__meta">
+            <span>Custom</span>
+            <span>On-Site / Remote</span>
+            <span>Group</span>
+          </div>
+          <a class="prog-card__cta" href="#">
+            <span>Request Proposal</span>
+            <span class="prog-card__cta-arrow" aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     COURSES — Our Courses (compact grid with filter tabs)
+     ═══════════════════════════════════════════════════════════ -->
+<section class="courses" id="courses">
+  <div class="courses__inner">
+    <header class="courses__head">
+      <div class="courses__eyebrow reveal reveal--eyebrow">
+        <span class="courses__eyebrow-num">05</span>
+        <span class="courses__eyebrow-rule" aria-hidden="true"></span>
+        <span>Our Courses</span>
+      </div>
+      <h2 class="courses__title reveal reveal--heading">
+        Explore the Catalogue
+      </h2>
+    </header>
+
+    <nav class="courses__tabs reveal reveal--body" aria-label="Course filter">
+      <button class="courses__tab is-active" data-filter="all">All</button>
+      <button class="courses__tab" data-filter="diagnosis">Diagnosis</button>
+      <button class="courses__tab" data-filter="certification">Certification</button>
+      <button class="courses__tab" data-filter="training">Training</button>
+      <button class="courses__tab" data-filter="tools">Tools</button>
+    </nav>
+
+    <div class="courses__grid">
+      <article class="course reveal reveal--body" style="--reveal-delay: 0ms" data-category="diagnosis">
+        <span class="course__num">01</span>
+        <div class="course__body">
+          <div class="course__cat">Diagnosis</div>
+          <h3 class="course__name">Personal Color Foundation</h3>
+          <p class="course__desc">
+            Learn the science behind personal color analysis. Covers LAB
+            color space, skin undertone measurement, and seasonal classification.
+          </p>
+          <div class="course__tags">
+            <span class="course__tag-item">8 Hours</span>
+            <span class="course__tag-item">Online</span>
+            <span class="course__tag-item">Beginner</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course reveal reveal--body" style="--reveal-delay: 80ms" data-category="diagnosis">
+        <span class="course__num">02</span>
+        <div class="course__body">
+          <div class="course__cat">Diagnosis</div>
+          <h3 class="course__name">Face Shape &amp; Body Analysis</h3>
+          <p class="course__desc">
+            Systematic frameworks for face shape classification and body
+            proportion assessment using measurement-based criteria.
+          </p>
+          <div class="course__tags">
+            <span class="course__tag-item">6 Hours</span>
+            <span class="course__tag-item">In-Studio</span>
+            <span class="course__tag-item">Intermediate</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course reveal reveal--body" style="--reveal-delay: 0ms" data-category="certification">
+        <span class="course__num">03</span>
+        <div class="course__body">
+          <div class="course__cat">Certification</div>
+          <h3 class="course__name">KCFB Level 1 Practitioner</h3>
+          <p class="course__desc">
+            Foundation-level certification. Master colorimetry basics,
+            diagnostic drape techniques, and client communication protocols.
+          </p>
+          <div class="course__tags">
+            <span class="course__tag-item">6 Weeks</span>
+            <span class="course__tag-item">Hybrid</span>
+            <span class="course__tag-item">Certification</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course reveal reveal--body" style="--reveal-delay: 80ms" data-category="certification">
+        <span class="course__num">04</span>
+        <div class="course__body">
+          <div class="course__cat">Certification</div>
+          <h3 class="course__name">KCFB Level 2 Senior Analyst</h3>
+          <p class="course__desc">
+            Advanced certification for experienced practitioners.
+            Covers complex cases, integrated consulting, and mentorship skills.
+          </p>
+          <div class="course__tags">
+            <span class="course__tag-item">8 Weeks</span>
+            <span class="course__tag-item">In-Person</span>
+            <span class="course__tag-item">Advanced</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course reveal reveal--body" style="--reveal-delay: 0ms" data-category="training">
+        <span class="course__num">05</span>
+        <div class="course__body">
+          <div class="course__cat">Training</div>
+          <h3 class="course__name">Beauty Industry Workshop</h3>
+          <p class="course__desc">
+            For salon owners and beauty professionals. Integrate
+            evidence-based color consulting into existing service menus.
+          </p>
+          <div class="course__tags">
+            <span class="course__tag-item">2 Days</span>
+            <span class="course__tag-item">On-Site</span>
+            <span class="course__tag-item">Professional</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="course reveal reveal--body" style="--reveal-delay: 80ms" data-category="tools">
+        <span class="course__num">06</span>
+        <div class="course__body">
+          <div class="course__cat">Tools &amp; Data</div>
+          <h3 class="course__name">Colorimeter Calibration Lab</h3>
+          <p class="course__desc">
+            Hands-on training with the LS170 colorimeter.
+            Covers setup, calibration, measurement protocols, and data entry.
+          </p>
+          <div class="course__tags">
+            <span class="course__tag-item">4 Hours</span>
+            <span class="course__tag-item">In-Studio</span>
+            <span class="course__tag-item">Technical</span>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     EXPERTS — Workshop Leaders / Experts & Partners
+     ═══════════════════════════════════════════════════════════ -->
+<section class="experts" id="experts">
+  <div class="experts__inner">
+    <header class="experts__head">
+      <div class="experts__eyebrow reveal reveal--eyebrow">
+        <span class="experts__eyebrow-num">06</span>
+        <span class="experts__eyebrow-rule" aria-hidden="true"></span>
+        <span>Experts &amp; Partners</span>
+      </div>
+      <h2 class="experts__title reveal reveal--heading">
+        KCFB Certified Practitioners
+      </h2>
+    </header>
+
+    <div class="experts__grid">
+      <article class="expert reveal reveal--body" style="--reveal-delay: 0ms">
+        <div class="expert__photo">Fig. 01 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Lim Kyung Eun</h3>
+          <p class="expert__role">Founder &amp; Lead Consultant</p>
+          <span class="expert__cert">KCFB-2024-0001</span>
+        </div>
+      </article>
+
+      <article class="expert reveal reveal--body" style="--reveal-delay: 80ms">
+        <div class="expert__photo">Fig. 02 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Kim Soo Jin</h3>
+          <p class="expert__role">Senior Color Analyst · Seoul</p>
+          <span class="expert__cert">KCFB-2024-0012</span>
+        </div>
+      </article>
+
+      <article class="expert reveal reveal--body" style="--reveal-delay: 160ms">
+        <div class="expert__photo">Fig. 03 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Tanaka Yui</h3>
+          <p class="expert__role">Lead Analyst · Osaka Studio</p>
+          <span class="expert__cert">KCFB-2024-0034</span>
+        </div>
+      </article>
+
+      <article class="expert reveal reveal--body" style="--reveal-delay: 240ms">
+        <div class="expert__photo">Fig. 04 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Wang Li</h3>
+          <p class="expert__role">Lead Analyst · Shanghai Studio</p>
+          <span class="expert__cert">KCFB-2024-0045</span>
+        </div>
+      </article>
+
+      <article class="expert reveal reveal--body" style="--reveal-delay: 0ms">
+        <div class="expert__photo">Fig. 05 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Park Min Jee</h3>
+          <p class="expert__role">Body Analysis Specialist · Busan</p>
+          <span class="expert__cert">KCFB-2024-0056</span>
+        </div>
+      </article>
+
+      <article class="expert reveal reveal--body" style="--reveal-delay: 80ms">
+        <div class="expert__photo">Fig. 06 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Lee Hana</h3>
+          <p class="expert__role">Training Director · KCFB Academy</p>
+          <span class="expert__cert">KCFB-2024-0067</span>
+        </div>
+      </article>
+
+      <article class="expert reveal reveal--body" style="--reveal-delay: 160ms">
+        <div class="expert__photo">Fig. 07 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Choi Yerim</h3>
+          <p class="expert__role">Colorimetry Researcher</p>
+          <span class="expert__cert">KCFB-2025-0078</span>
+        </div>
+      </article>
+
+      <article class="expert reveal reveal--body" style="--reveal-delay: 240ms">
+        <div class="expert__photo">Fig. 08 &mdash; Portrait · 3:4</div>
+        <div class="expert__info">
+          <h3 class="expert__name">Sato Haruka</h3>
+          <p class="expert__role">Consultant · Osaka Studio</p>
+          <span class="expert__cert">KCFB-2025-0089</span>
+        </div>
+      </article>
+    </div>
+
+    <div class="experts__partners reveal reveal--body" style="--reveal-delay: 300ms">
+      <div class="experts__partners-label">Strategic Partners</div>
+      <div class="experts__logos">
+        <span class="experts__logo-ph">APLCOLOR</span>
+        <span class="experts__logo-ph">KCFB</span>
+        <span class="experts__logo-ph">KimVsTiger</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════════════════════════ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">APLs</div>
+        <div class="footer__slogan">Clearly Measured.<br>Personally Set.</div>
+      </div>
+      <div>
+        <div class="footer__col-title">Navigation</div>
+        <div class="footer__links">
+          <a class="footer__link" href="#about">About</a>
+          <a class="footer__link" href="#services">Services</a>
+          <a class="footer__link" href="#programs">Programs</a>
+          <a class="footer__link" href="#courses">Courses</a>
+          <a class="footer__link" href="#experts">Experts</a>
+        </div>
+      </div>
+      <div>
+        <div class="footer__col-title">Sub-Brands</div>
+        <div class="footer__links">
+          <a class="footer__link" href="#">APLCOLOR &mdash; Diagnostic Studios</a>
+          <a class="footer__link" href="#">KCFB &mdash; Certification Body</a>
+          <a class="footer__link" href="#">KimVsTiger &mdash; Tech &amp; Data</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="footer__legal">
+        APLs Co., Ltd. &middot; Registration 102-81-48099<br>
+        11F, 428 Seolleung-ro, Gangnam-gu, Seoul, Republic of Korea<br>
+        CEO Lim Kyung Eun &middot; Est. 2024
+      </div>
+      <div class="footer__lang" role="group" aria-label="Language">
+        <a href="#" class="is-active">EN</a>
+        <span class="footer__lang-sep">/</span>
+        <a href="#">KR</a>
+        <span class="footer__lang-sep">/</span>
+        <a href="#">JP</a>
+        <span class="footer__lang-sep">/</span>
+        <a href="#">CN</a>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <!-- ═══════════════════════════════════════════════════════════
      SCRIPTS
@@ -1347,6 +2456,22 @@ h1, h2, h3, h4, .nav__label, .hero__headline, .tile__name,
       update();
     }
   }
+
+  /* ─── Course filter tabs ─── */
+  document.querySelectorAll('.courses__tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.courses__tab').forEach(t => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      const filter = tab.dataset.filter;
+      document.querySelectorAll('.course').forEach(course => {
+        if (filter === 'all' || course.dataset.category === filter) {
+          course.style.display = '';
+        } else {
+          course.style.display = 'none';
+        }
+      });
+    });
+  });
 
   /* ─── Hero video load ─── */
   const video = document.getElementById('heroVideo');
