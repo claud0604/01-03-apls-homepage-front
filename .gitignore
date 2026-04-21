@@ -1,0 +1,6 @@
+# Large video source files
+*.mov
+*.MOV
+
+# OS
+.DS_Store
